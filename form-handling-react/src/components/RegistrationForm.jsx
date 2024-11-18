@@ -8,7 +8,7 @@ const RegistrationForm = () => {
   });
 
   const [errors, setErrors] = useState({});
-  
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -46,7 +46,7 @@ const RegistrationForm = () => {
           value={formData.username}
           onChange={handleChange}
         />
-        {errors.username && <p>{errors.username}</p>}
+        {errors.username && <p style={{ color: 'red' }}>{errors.username}</p>}
       </div>
 
       <div>
@@ -58,7 +58,7 @@ const RegistrationForm = () => {
           value={formData.email}
           onChange={handleChange}
         />
-        {errors.email && <p>{errors.email}</p>}
+        {errors.email && <p style={{ color: 'red' }}>{errors.email}</p>}
       </div>
 
       <div>
@@ -70,7 +70,7 @@ const RegistrationForm = () => {
           value={formData.password}
           onChange={handleChange}
         />
-        {errors.password && <p>{errors.password}</p>}
+        {errors.password && <p style={{ color: 'red' }}>{errors.password}</p>}
       </div>
 
       <button type="submit">Submit</button>
