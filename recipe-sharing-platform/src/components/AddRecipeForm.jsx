@@ -3,14 +3,14 @@ import React, { useState } from 'react';
 function AddRecipeForm({ onAddRecipe }) {
   const [title, setTitle] = useState('');
   const [ingredients, setIngredients] = useState('');
-  const [instructions, setInstructions] = useState('');
+  const [steps, setSteps] = useState('');
   const [error, setError] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setError('');
 
-    if (!title || !ingredients || !instructions) {
+    if (!title || !ingredients || !steps) {
       setError('All fields are required.');
       return;
     }
@@ -24,12 +24,12 @@ function AddRecipeForm({ onAddRecipe }) {
     onAddRecipe({
       title,
       ingredients: ingredientsList,
-      instructions: instructions.split('\n').map(step => step.trim()),
+      steps: steps.split('\n').map(step => step.trim()),
     });
 
     setTitle('');
     setIngredients('');
-    setInstructions('');
+    setSteps('');
   };
 
   return (
@@ -60,11 +60,11 @@ function AddRecipeForm({ onAddRecipe }) {
           />
         </div>
         <div>
-          <label className="block text-gray-700 mb-2" htmlFor="instructions">Preparation Steps (one per line)</label>
+          <label className="block text-gray-700 mb-2" htmlFor="steps">Preparation Steps (one per line)</label>
           <textarea
-            id="instructions"
-            value={instructions}
-            onChange={(e) => setInstructions(e.target.value)}
+            id="steps"
+            value={steps}
+            onChange={(e) => setSteps(e.target.value)}
             className="w-full border border-gray-300 rounded-md p-2 focus:ring focus:ring-blue-500"
             rows="6"
             required
